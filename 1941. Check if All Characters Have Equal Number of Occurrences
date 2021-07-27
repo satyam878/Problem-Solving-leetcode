@@ -1,0 +1,21 @@
+class Solution {
+    public boolean areOccurrencesEqual(String s) {
+        
+        if(s.length()==1)
+            return true;
+        int ch[]=new int[26];
+        int l=s.length();
+        for(int i=0;i<l;i++)
+        {
+            int c=(int)s.charAt(i);
+            ch[c-97]++;
+        }
+        Arrays.sort(ch);
+        for(int i=25;i>1;i--)
+        {
+            if(ch[i]!=ch[25] && ch[i]!=0)
+                return false;
+        }
+        return true;
+    }
+}
