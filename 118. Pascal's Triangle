@@ -1,0 +1,32 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        if(numRows<=0)
+            return null;
+        
+        List<List<Integer>> ans=new ArrayList<>();
+        
+        for(int i=1;i<=numRows;i++)
+            ans.add(nextRow(i));
+        
+        return ans;
+        
+    }
+    
+    List<Integer> nextRow(int row)
+    {
+        List <Integer> ar=new ArrayList<>();
+        ar.add(1);
+        long num=row-1;
+        long deno=1;
+        double n=1;
+        for(int j=2;j<=row;j++)
+        {
+            n=n/deno;
+            n=n*num;
+            ar.add((int)n);
+            num--;
+            deno++;
+        }
+        return ar;
+    }
+}
