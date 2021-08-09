@@ -1,0 +1,31 @@
+import java.util.Collections;
+class MinStack {
+
+    List<Integer> arr=new ArrayList();
+    int top=-1;
+    public MinStack() {
+        
+    }
+    
+    public void push(int val) {
+        arr.add(val);
+        top++;
+        
+    }
+    
+    public void pop() {
+        arr.remove(top);
+        top--;
+        
+    }
+    
+    public int top() {
+        return arr.get(top);
+        
+    }
+    
+    public int getMin() {
+         return Collections.min(arr);
+        
+    }
+}
