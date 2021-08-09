@@ -1,0 +1,44 @@
+class Solution {
+    public int evalRPN(String[] t) {
+        
+        Stack<Integer> tk=new Stack();
+        for(int i=0;i<t.length;i++)
+        {
+            if(t[i].equals("+"))
+            {
+                int s=(int)tk.pop()+(int)tk.pop();
+                tk.push(s);
+            }
+            else
+            if(t[i].equals("-"))
+            {
+                int s1=tk.pop();
+                int s2=tk.pop();
+                int s=s2-s1;
+                tk.push(s);
+            }
+            else
+            if(t[i].equals("*"))
+            {
+                int s=(int)tk.pop()*(int)tk.pop();
+                tk.push(s);
+            }
+            else
+            if(t[i].equals("/"))
+            {
+                int s1=tk.pop();
+                int s2=tk.pop();
+                int s=s2/s1;
+                tk.push(s);
+            }
+            else
+            {
+                int a=Integer.parseInt(t[i]); 
+                tk.push(a);
+            }
+        }
+        
+        return tk.peek();
+        
+    }
+}
